@@ -1,6 +1,6 @@
 package com.pluang.controllers;
 
-import com.pluang.datastructure.ItemData;
+import com.pluang.data.ItemData;
 import com.pluang.dtos.NumberSearchMapper;
 import com.pluang.dtos.NumberSearchResponse;
 import com.pluang.services.NumberService;
@@ -14,17 +14,18 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/numbers")
 class NumberController {
 
-    private final NumberService numberService;
+    private final NumberService numberServiceAvl;
+    private final NumberService numberServiceDb;
     private final NumberSearchMapper numberSearchMapper;
 
     @Autowired
-    public NumberController(NumberService numberService, NumberSearchMapper numberSearchMapper) {
-        this.numberService = numberService;
+    public NumberController(NumberService numberServiceAvl, NumberService numberServiceDb, NumberSearchMapper numberSearchMapper) {
+        this.numberServiceAvl = numberServiceAvl;
+        this.numberServiceDb = numberServiceDb;
         this.numberSearchMapper = numberSearchMapper;
     }
 
-    @GetMapping("/{item}")
-    public NumberSearchResponse getOrAddNumber(@PathVariable double item) {
+    private NumberSearchResponse getOrAddNumber(double item, NumberService numberService) {
         ItemData itemData = numberService.getItem(item);
         if (itemData == null) {
             numberService.insert(item);
@@ -34,6 +35,16 @@ class NumberController {
         NumberSearchResponse response = numberSearchMapper.getNumberSearchResponse(itemData);
         numberService.updateLastSearchTime(itemData);
         return response;
+    }
+
+    @GetMapping("/{item}")
+    public NumberSearchResponse getOrAddNumber(@PathVariable double item) {
+        return this.getOrAddNumber(item, numberServiceAvl);
+    }
+
+    @GetMapping("/{item}/persist")
+    public NumberSearchResponse getOrAddPersistedNumber(@PathVariable double item) {
+        return this.getOrAddNumber(item, numberServiceDb);
     }
 
 }
