@@ -1,8 +1,9 @@
-package com.pluang.services;
+package com.pluang.services.impl;
 
 import com.pluang.data.ItemData;
 import com.pluang.entities.Item;
 import com.pluang.repositories.ItemRepository;
+import com.pluang.services.NumberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

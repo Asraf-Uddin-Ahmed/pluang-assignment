@@ -1,8 +1,8 @@
 package com.pluang.controllers;
 
 import com.pluang.data.ItemData;
-import com.pluang.dtos.NumberSearchMapper;
-import com.pluang.dtos.NumberSearchResponse;
+import com.pluang.dtos.mapper.NumberSearchMapper;
+import com.pluang.dtos.response.NumberSearchResponse;
 import com.pluang.services.NumberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

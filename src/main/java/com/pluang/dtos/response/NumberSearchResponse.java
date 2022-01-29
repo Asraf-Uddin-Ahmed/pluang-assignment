@@ -1,4 +1,4 @@
-package com.pluang.dtos;
+package com.pluang.dtos.response;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
