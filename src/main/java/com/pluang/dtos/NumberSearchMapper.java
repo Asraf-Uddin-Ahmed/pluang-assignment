@@ -1,6 +1,6 @@
 package com.pluang.dtos;
 
-import com.pluang.datastructure.Node;
+import com.pluang.datastructure.ItemData;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -12,12 +12,12 @@ public class NumberSearchMapper {
                 .build();
     }
 
-    public NumberSearchResponse getNumberSearchResponse(Node node) {
+    public NumberSearchResponse getNumberSearchResponse(ItemData itemData) {
         return NumberSearchResponse.builder()
                 .result("true")
-                .firstInsertDateTime(node.getInsertionTime())
-                .lastSearchDateTime(node.getLastSearchTime())
-                .searchCount(node.getSearchCount())
+                .firstInsertDateTime(itemData.getInsertionTime())
+                .lastSearchDateTime(itemData.getLastSearchTime())
+                .searchCount(itemData.getSearchCount())
                 .build();
     }
 
