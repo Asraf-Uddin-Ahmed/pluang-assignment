@@ -1,4 +1,4 @@
-package com.pluang.datastructure;
+package com.pluang.data;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -17,9 +17,14 @@ public class ItemData {
     @Setter
     private int searchCount;
 
-    ItemData(double item) {
+    public ItemData(double item) {
         this.item = item;
         insertionTime = new Date();
         searchCount = 0;
+    }
+
+    public ItemData(double item, Date insertionTime) {
+        this.item = item;
+        this.insertionTime = insertionTime;
     }
 }

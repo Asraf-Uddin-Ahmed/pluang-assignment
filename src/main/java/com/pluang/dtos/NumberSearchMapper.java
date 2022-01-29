@@ -1,6 +1,6 @@
 package com.pluang.dtos;
 
-import com.pluang.datastructure.ItemData;
+import com.pluang.data.ItemData;
 import com.pluang.utils.DateUtil;
 import org.springframework.stereotype.Component;
 

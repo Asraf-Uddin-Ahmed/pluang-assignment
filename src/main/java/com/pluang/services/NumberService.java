@@ -1,6 +1,6 @@
 package com.pluang.services;
 
-import com.pluang.datastructure.ItemData;
+import com.pluang.data.ItemData;
 
 public interface NumberService {
     ItemData getItem(double item);

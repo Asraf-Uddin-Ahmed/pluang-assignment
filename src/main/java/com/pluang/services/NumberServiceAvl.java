@@ -1,7 +1,7 @@
 package com.pluang.services;
 
 import com.pluang.datastructure.AVLTree;
-import com.pluang.datastructure.ItemData;
+import com.pluang.data.ItemData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
