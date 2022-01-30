@@ -8,6 +8,11 @@ A Simple REST API for Assignment of Pluang
 - H2 Database
 - Tomcat [Spring Boot Embedded Server]
 
+## Data Structure Used
+**AVL Tree**
+
+Linear search and Binary search would be the memory-efficient solution, but both have the same time complexity, O(n) for insertion and searching. On other hand, the AVL tree is a balanced binary search tree that is less memory-efficient but the time complexity is O(log n) for insertion and searching.
+
 ## System configuration prerequisites
 
 First, make sure that the Java 8 JDK and Maven are installed.
